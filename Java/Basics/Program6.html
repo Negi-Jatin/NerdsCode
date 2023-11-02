@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../java.css">
+    <!-- <link rel="stylesheet" href="../views/pages/java/java.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <style>
+            *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.start-java{
+    width: 85%;
+    height: 40em;
+    /* background-image: url('../../accets/images/Card1.jpeg'); */
+    /* background-image: url('./Card1.jpeg'); */
+    background-image: url('./views/accets/images/Card1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .5;
+    filter: blur(1.4px);
+    -webkit-filter: blur(1.4px);
+    /* border: 2px solid red; */
+    position: relative;
+    z-index: 0;
+}
+.java{
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    /* 1 */
+}
+</style>
+</head>
+<body class="bg-black">
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <span class="fw-bold fs-3">Nerds</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+                    <li class="nav-item p-3">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="courses.html" class="nav-link">Courses</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="tutorial.html" class="nav-link">Tutorial</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button type="button" class="btn border-white border-2 px-5">
+                        <a href="sign-up.html" class="nav-link">Sign Up</a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row p-4">
+                    <div class="col bg-white p-5">
+                        <p class="fs-1 fw-bold text-center mb-0">Java</p>
+                        <p class="fs-5 text-center mb-5">Basics</p>
+                        <p className='fs-5 fw-semibold'>6. Write a Java program to swap two variables.</p>
+                            <p className='fs-6 fw-medium'>Code:</p>
+                            <p className='fw-normal border border-5 rounded-4 p-3'>
+                                class SwapTwoVariables&#123;<br />
+                                public static void main(String a[])&#123;<br />
+
+                                int x = 1, y = 2;<br />
+
+                                System.out.println("Before swap");<br />
+                                System.out.println("x = " + x + "\ny = " + y);<br />
+
+                                int temp = x;<br />
+                                x = y;<br />
+                                y=temp;<br />
+
+                                System.out.println("\n\nAfter swap");<br />
+                                System.out.println("x = " + x + "\ny = " + y);<br />
+
+                                &#125;<br />
+                                &#125;<br />
+                            </p>
+
+                            <p className='fs-6 fw-medium pt-5'>Output:</p>
+                            <p className='fw-normal border border-5 rounded-4 p-3'>
+                                Before swap
+                                x = 1<br />
+                                y = 2<br />
+
+                                <br />
+                                After swap<br />
+                                x = 2<br />
+                                y = 1
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> 
+
+    <footer class="mt-5">
+        <div class="container-fluid mt-5 bg-dark">
+            <div class="container py-5">
+                <h1 class="text-center text-white">Nerds</h1>
+                <div class="row">
+                    <div class="col d-flex justify-content-center text-white">
+                        <p class="p-4">Home</p>
+                        <p class="p-4">Courses</p>
+                        <p class="p-4">About</p>
+                        <p class="p-4">Contact</p>
+                        <p class="p-4">Sign in</p>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col d-flex justify-content-center text-white">
+                        <p>2023@copyright JaspreetMehra185.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
