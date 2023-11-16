@@ -80,21 +80,123 @@
                 <div class="row p-4">
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
-                        <p class="fs-5 text-center mb-5">Exception Handling</p>
-                        <p class='fs-5 fw-semibold'>1. Write a Java program to print ‘Hello World!’ on screen.</p>
+                        <p class="fs-5 text-center mb-5">2D Array</p>
+                        <p class='fs-5 fw-semibold'>9. Program to find the sum of each row and each column of a matrix.</p>
                             <p class='fs-6 fw-medium'>Code:</p>
-                            <!-- {/* <img src={code1} class='rounded-3 bg-dark p-2 mt-3' alt="" srcset="" width='600px' /> */} -->
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                class Hello&#123;<br />
-                                public static void main(String a[])&#123;<br />
-                                System.out.print("Hello World!");<br />
-                                &#125;<br />
-                                &#125;
-                            </p>
 
+                            <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+import java.util.Scanner;
+
+public class SumOfRowsAndColumns {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+                                
+        // Get the dimensions of the matrix
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+                                
+        System.out.print("Enter the number of columns: ");
+        int columns = scanner.nextInt();
+                                
+        // Create a matrix
+        int[][] matrix = new int[rows][columns];
+                                
+        // Get elements for the matrix
+        enterMatrixElements(scanner, matrix);
+                                
+        // Calculate and display the sum of each row and each column
+        System.out.println("Original Matrix:");
+        printMatrix(matrix);
+                                
+        calculateAndDisplaySumOfRows(matrix);
+        calculateAndDisplaySumOfColumns(matrix);
+                                
+        scanner.close();
+    }
+                                
+    // Function to enter matrix elements
+    private static void enterMatrixElements(Scanner scanner, int[][] matrix) {
+        System.out.println("Enter elements for the matrix:");
+                                
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print("Enter element at position [" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+    }
+                                
+    // Function to calculate and display the sum of each row
+    private static void calculateAndDisplaySumOfRows(int[][] matrix) {
+        System.out.println("Sum of Each Row:");
+                                
+        for (int i = 0; i < matrix.length; i++) {
+            int rowSum = 0;
+            for (int j = 0; j < matrix[0].length; j++) {
+                rowSum += matrix[i][j];
+            }
+            System.out.println("Row " + (i + 1) + ": " + rowSum);
+        }
+    }
+                                
+    // Function to calculate and display the sum of each column
+    private static void calculateAndDisplaySumOfColumns(int[][] matrix) {
+        System.out.println("Sum of Each Column:");
+                                
+        for (int j = 0; j < matrix[0].length; j++) {
+            int colSum = 0;
+            for (int i = 0; i < matrix.length; i++) {
+                colSum += matrix[i][j];
+            }
+            System.out.println("Column " + (j + 1) + ": " + colSum);
+        }
+    }
+                                
+    // Function to print a matrix
+    private static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println(); // Move to the next row
+        }
+        System.out.println(); // Separate matrices by a blank line
+    }
+}                                
+</pre>
                             <p class='fs-6 fw-medium pt-5'>Output:</p>
                             <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Hello World!
+                                Enter the number of rows: 3 <br>
+Enter the number of columns: 4 <br>
+Enter elements for the matrix: <br>
+Enter element at position [0][0]: 1 <br>
+Enter element at position [0][1]: 2 <br>
+Enter element at position [0][2]: 3 <br>
+Enter element at position [0][3]: 4 <br>
+Enter element at position [1][0]: 5 <br>
+Enter element at position [1][1]: 6 <br>
+Enter element at position [1][2]: 7 <br>
+Enter element at position [1][3]: 8 <br>
+Enter element at position [2][0]: 9 <br>
+Enter element at position [2][1]: 10 <br>
+Enter element at position [2][2]: 11 <br>
+Enter element at position [2][3]: 12 <br>
+ <br>
+Original Matrix: <br>
+1 2 3 4  <br>
+5 6 7 8  <br>
+9 10 11 12  <br>
+ <br>
+Sum of Each Row: <br>
+Row 1: 10 <br>
+Row 2: 26 <br>
+Row 3: 42 <br>
+ <br>
+Sum of Each Column: <br>
+Column 1: 15 <br>
+Column 2: 18 <br>
+Column 3: 21 <br>
+Column 4: 24 <br>
                             </p>
                     </div>
                 </div>
