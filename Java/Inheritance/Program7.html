@@ -80,22 +80,82 @@
                 <div class="row p-4">
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
-                        <p class="fs-5 text-center mb-5">Array</p>
-                        <p class='fs-5 fw-semibold'>1. Write a Java program to print ‘Hello World!’ on screen.</p>
-                            <p class='fs-6 fw-medium'>Code:</p>
-                            <!-- {/* <img src={code1} class='rounded-3 bg-dark p-2 mt-3' alt="" srcset="" width='600px' /> */} -->
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                class Hello&#123;<br />
-                                public static void main(String a[])&#123;<br />
-                                System.out.print("Hello World!");<br />
-                                &#125;<br />
-                                &#125;
-                            </p>
+                        <p class="fs-5 text-center mb-5">Inheritance</p>
+                        <p class='fs-5 fw-semibold'>7. Write a Java program to create a class known as Person with methods called getFirstName() and getLastName(). Create a subclass called Employee that adds a new method named getEmployeeId() and overrides the getLastName() method to include the employee's job title.</p>
+                                    <p class='fs-6 fw-medium'>Code:</p>
+                                    <!-- {/* <img src={code1} class='rounded-3 bg-dark p-2 mt-3' alt="" srcset="" width='600px' /> */} -->
+                                    <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+// Base class Person
+class Person {
+    // Attributes
+    private String firstName;
+    private String lastName;
+                                        
+    // Constructor
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+                                        
+    // Method to get the first name
+    public String getFirstName() {
+        return firstName;
+    }
+                                        
+    // Method to get the last name
+    public String getLastName() {
+        return lastName;
+    }
+}
+                                        
+// Subclass Employee extending Person
+class Employee extends Person {
+    // Attributes specific to Employee
+    private int employeeId;
+    private String jobTitle;
+                                        
+    // Constructor for Employee
+    public Employee(String firstName, String lastName, int employeeId, String jobTitle) {
+        super(firstName, lastName);
+        this.employeeId = employeeId;
+        this.jobTitle = jobTitle;
+    }
+                                        
+    // New method specific to Employee
+    public int getEmployeeId() {
+        return employeeId;
+    }
+                                        
+    // Override the getLastName method to include the employee's job title
+    <!-- @Override -->
+    public String getLastName() {
+        return super.getLastName() + ", " + jobTitle;
+    }
+}
+                                        
+// Main class
+public class PersonExample {
+    public static void main(String[] args) {
+        // Create an instance of Person
+        Person genericPerson = new Person("John", "Doe");
 
-                            <p class='fs-6 fw-medium pt-5'>Output:</p>
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Hello World!
-                            </p>
+        // Create an instance of Employee
+        Employee myEmployee = new Employee("Alice", "Smith", 1234, "Software Engineer");
+
+        // Demonstrate getFirstName, getLastName, and getEmployeeId for both instances
+        System.out.println("Person: " + genericPerson.getFirstName() + " " + genericPerson.getLastName());
+        System.out.println("Employee: " + myEmployee.getFirstName() + " " + myEmployee.getLastName());
+        System.out.println("Employee ID: " + myEmployee.getEmployeeId());
+    }
+}                                                                                                                                                          
+</pre>
+        
+                                    <p class='fs-6 fw-medium pt-5'>Output:</p>
+                                    <p class='fw-normal border border-5 rounded-4 p-3'>
+                                        Person: John Doe <br>
+Employee: Alice Smith, Software Engineer <br>
+Employee ID: 1234
+                                    </p>
                     </div>
                 </div>
             </div>
