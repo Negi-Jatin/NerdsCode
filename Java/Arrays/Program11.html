@@ -80,22 +80,36 @@
                 <div class="row p-4">
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
-                        <p class="fs-5 text-center mb-5">2D Array</p>
-                        <p class='fs-5 fw-semibold'>1. Write a Java program to print ‘Hello World!’ on screen.</p>
-                            <p class='fs-6 fw-medium'>Code:</p>
-                            <!-- {/* <img src={code1} class='rounded-3 bg-dark p-2 mt-3' alt="" srcset="" width='600px' /> */} -->
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                class Hello&#123;<br />
-                                public static void main(String a[])&#123;<br />
-                                System.out.print("Hello World!");<br />
-                                &#125;<br />
-                                &#125;
-                            </p>
-
-                            <p class='fs-6 fw-medium pt-5'>Output:</p>
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Hello World!
-                            </p>
+                        <p class="fs-5 text-center mb-5">Array</p>
+                        <p class='fs-5 fw-semibold'>11. Program to print the number of elements present in an array.</p>
+                                    <p class='fs-6 fw-medium'>Code:</p>
+                                    <!-- {/* <img src={code1} class='rounded-3 bg-dark p-2 mt-3' alt="" srcset="" width='600px' /> */} -->
+                                    <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+public class NumberOfElementsExample {
+    public static void main(String[] args) {
+        int[] array = {12, 45, 78, 23, 56, 89, 34, 67};
+                                        
+        System.out.println("Original Array:");
+        printArray(array);
+                                        
+        int numberOfElements = array.length;
+        System.out.println("\nNumber of Elements in the Array: " + numberOfElements);
+    }
+                                        
+    private static void printArray(int[] array) {
+        for (int value : array) {
+            System.out.print(value + " ");
+        }
+    }
+}                                                                                                                   
+</pre>
+        
+                                    <p class='fs-6 fw-medium pt-5'>Output:</p>
+                                    <p class='fw-normal border border-5 rounded-4 p-3'>
+                                        Original Array: <br>
+12 45 78 23 56 89 34 67  <br>
+Number of Elements in the Array: 8
+                                    </p>
                     </div>
                 </div>
             </div>
