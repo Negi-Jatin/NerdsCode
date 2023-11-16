@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../java.css">
+    <!-- <link rel="stylesheet" href="../views/pages/java/java.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <style>
+            *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.start-java{
+    width: 85%;
+    height: 40em;
+    /* background-image: url('../../accets/images/Card1.jpeg'); */
+    /* background-image: url('./Card1.jpeg'); */
+    background-image: url('./views/accets/images/Card1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .5;
+    filter: blur(1.4px);
+    -webkit-filter: blur(1.4px);
+    /* border: 2px solid red; */
+    position: relative;
+    z-index: 0;
+}
+.java{
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    /* 1 */
+}
+</style>
+</head>
+<body class="bg-black">
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <span class="fw-bold fs-3">Nerds</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+                    <li class="nav-item p-3">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="courses.html" class="nav-link">Courses</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="tutorial.html" class="nav-link">Tutorial</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button type="button" class="btn border-white border-2 px-5">
+                        <a href="sign-up.html" class="nav-link">Sign Up</a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row p-4">
+                    <div class="col bg-white p-5">
+                        <p class="fs-1 fw-bold text-center mb-0">Java</p>
+                        <p class="fs-5 text-center mb-5">Interface</p>
+                        <p class='fs-5 fw-semibold'>11. Write a Java program to create an interface Sortable with a method sort (int[] array) that sorts an array of integers in descending order. Create two classes QuickSort and MergeSort that implement the Sortable interface and provide their own implementations of the sort() method.</p>
+                                    <p class='fs-6 fw-medium'>Code:</p>
+                                    <!-- {/* <img src={code1} class='rounded-3 bg-dark p-2 mt-3' alt="" srcset="" width='600px' /> */} -->
+                                    <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+// Interface for sorting arrays in descending order
+interface Sortable {
+    void sort(int[] array);
+}
+                                        
+// QuickSort class implementing Sortable interface
+class QuickSort implements Sortable {
+    <!-- @Override -->
+    public void sort(int[] array) {
+        quickSort(array, 0, array.length - 1);
+    }
+                                        
+    private void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int partitionIndex = partition(array, low, high);
+            quickSort(array, low, partitionIndex - 1);
+            quickSort(array, partitionIndex + 1, high);
+        }
+    }
+                                        
+    private int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = low - 1;
+                                        
+        for (int j = low; j < high; j++) {
+            if (array[j] >= pivot) {
+                i++;
+                swap(array, i, j);
+            }
+        }
+                                        
+        swap(array, i + 1, high);
+        return i + 1;
+    }
+                                        
+    private void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+                                        
+// MergeSort class implementing Sortable interface
+class MergeSort implements Sortable {
+    <!-- @Override -->
+    public void sort(int[] array) {
+        mergeSort(array, 0, array.length - 1);
+    }
+                                        
+    private void mergeSort(int[] array, int left, int right) {
+        if (left < right) {
+            int middle = (left + right) / 2;
+            mergeSort(array, left, middle);
+            mergeSort(array, middle + 1, right);
+            merge(array, left, middle, right);
+        }
+    }
+                                        
+    private void merge(int[] array, int left, int middle, int right) {
+        int n1 = middle - left + 1;
+        int n2 = right - middle;
+                                        
+        int[] leftArray = new int[n1];
+        int[] rightArray = new int[n2];
+                                        
+        for (int i = 0; i < n1; i++) {
+            leftArray[i] = array[left + i];
+        }
+                                        
+        for (int j = 0; j < n2; j++) {
+            rightArray[j] = array[middle + 1 + j];
+        }
+                                        
+        int i = 0, j = 0, k = left;
+                                        
+        while (i < n1 && j < n2) {
+            if (leftArray[i] >= rightArray[j]) {
+                array[k] = leftArray[i];
+                i++;
+            } else {
+                array[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+                                        
+        while (i < n1) {
+            array[k] = leftArray[i];
+            i++;
+            k++;
+        }
+                                        
+        while (j < n2) {
+            array[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
+}
+                                        
+// Main class
+public class SortableExample {
+    public static void main(String[] args) {
+        // Example array to be sorted
+        int[] arrayToSort = {64, 34, 25, 12, 22, 11, 90};
+                                        
+        // Sort using QuickSort
+        Sortable quickSort = new QuickSort();
+        quickSort.sort(arrayToSort.clone());
+        System.out.println("Sorted array using QuickSort: " + arrayToString(arrayToSort));
+                                        
+        // Sort using MergeSort
+        Sortable mergeSort = new MergeSort();
+        mergeSort.sort(arrayToSort.clone());
+        System.out.println("Sorted array using MergeSort: " + arrayToString(arrayToSort));
+    }
+                                        
+    // Helper method to convert an array to a string for display
+    private static String arrayToString(int[] array) {
+        StringBuilder result = new StringBuilder("[");
+        for (int i = 0; i < array.length; i++) {
+            result.append(array[i]);
+            if (i < array.length - 1) {
+                result.append(", ");
+            }
+        }
+        result.append("]");
+        return result.toString();
+    }
+}                                                                                                                    
+</pre>
+        
+                                    <p class='fs-6 fw-medium pt-5'>Output:</p>
+                                    <p class='fw-normal border border-5 rounded-4 p-3'>
+                                        Sorted array using QuickSort: [90, 64, 34, 25, 22, 12, 11] <br>
+Sorted array using MergeSort: [90, 64, 34, 25, 22, 12, 11]
+                                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> 
+
+    <footer class="mt-5">
+        <div class="container-fluid mt-5 bg-dark">
+            <div class="container py-5">
+                <h1 class="text-center text-white">Nerds</h1>
+                <div class="row">
+                    <div class="col d-flex justify-content-center text-white">
+                        <p class="p-4">Home</p>
+                        <p class="p-4">Courses</p>
+                        <p class="p-4">About</p>
+                        <p class="p-4">Contact</p>
+                        <p class="p-4">Sign in</p>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col d-flex justify-content-center text-white">
+                        <p>2023@copyright JaspreetMehra185.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
