@@ -81,48 +81,50 @@
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
                         <p class="fs-5 text-center mb-5">Input/ Output</p>
-                        <p class='fs-5 fw-semibold'>1. Enter the character from user using InputStreamReader.</p>
-                            <p class='fs-6 fw-medium'>Code:</p>
+                        <p class='fs-5 fw-semibold'>8. Create a Java program to create a package with public class and protected members to be accessed in another class.</p>
+                        <p class='fs-6 fw-medium'>Code:</p>
 
-                            <pre class='fw-normal border border-5 rounded-4 p-3 list'>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class ReadCharFromUser {
-    public static void main(String[] args) {
-        // Create an InputStreamReader to read characters from the console
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-
-        // Wrap the InputStreamReader with BufferedReader for easier reading
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        try {
-            // Prompt the user to enter a character
-            System.out.print("Enter a character: ");
-
-            // Read a single character from the user
-            char userInput = (char) bufferedReader.read();
-
-            // Print the entered character
-            System.out.println("You entered: " + userInput);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                // Close the BufferedReader
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.err.println("Error closing BufferedReader: " + e.getMessage());
-            }
-        }
-    }
-}</pre>
-                            <p class='fs-6 fw-medium pt-5'>Output:</p>
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Enter a character: A<br>
-You entered: A
-                            </p>
+                        <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+// Employee.java
+package employee;
+                            
+public class Employee {
+// Protected members
+protected String name;
+protected int empId;
+protected double salary;
+                            
+// Constructor
+public Employee(String name, int empId, double salary) {
+    this.name = name;
+    this.empId = empId;
+    this.salary = salary;
+}
+}
+                            
+// Payroll.java
+import employee.Employee;
+                            
+public class Payroll {
+public static void main(String[] args) {
+    // Create an object of the Employee class
+    Employee employee = new Employee("John Doe", 101, 50000.0);
+                            
+    // Access protected members of the Employee class
+    System.out.println("Employee Details:");
+    System.out.println("Name: " + employee.name);   // Access protected variable
+    System.out.println("Employee ID: " + employee.empId);   // Access protected variable
+    System.out.println("Salary: " + employee.salary);   // Access protected variable
+}
+}
+</pre>
+                        <p class='fs-6 fw-medium pt-5'>Output:</p>
+                        <p class='fw-normal border border-5 rounded-4 p-3'>
+                            Employee Details: <br>
+Name: John Doe <br>
+Employee ID: 101 <br>
+Salary: 50000.0 <br>
+                        </p>
                     </div>
                 </div>
             </div>

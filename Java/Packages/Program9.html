@@ -81,48 +81,50 @@
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
                         <p class="fs-5 text-center mb-5">Input/ Output</p>
-                        <p class='fs-5 fw-semibold'>1. Enter the character from user using InputStreamReader.</p>
-                            <p class='fs-6 fw-medium'>Code:</p>
+                        <p class='fs-5 fw-semibold'>9. Create a Java program to create a nested package i.e. c4.sample with public class and protected members to be accessed in another class.</p>
+                        <p class='fs-6 fw-medium'>Code:</p>
 
-                            <pre class='fw-normal border border-5 rounded-4 p-3 list'>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class ReadCharFromUser {
-    public static void main(String[] args) {
-        // Create an InputStreamReader to read characters from the console
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-
-        // Wrap the InputStreamReader with BufferedReader for easier reading
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        try {
-            // Prompt the user to enter a character
-            System.out.print("Enter a character: ");
-
-            // Read a single character from the user
-            char userInput = (char) bufferedReader.read();
-
-            // Print the entered character
-            System.out.println("You entered: " + userInput);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                // Close the BufferedReader
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.err.println("Error closing BufferedReader: " + e.getMessage());
-            }
-        }
-    }
-}</pre>
-                            <p class='fs-6 fw-medium pt-5'>Output:</p>
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Enter a character: A<br>
-You entered: A
-                            </p>
+                        <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+// SampleClass.java
+package c4.sample;
+                            
+public class SampleClass {
+// Protected members
+protected String sampleName;
+protected int sampleId;
+protected double sampleValue;
+                            
+// Constructor
+public SampleClass(String sampleName, int sampleId, double sampleValue) {
+    this.sampleName = sampleName;
+    this.sampleId = sampleId;
+    this.sampleValue = sampleValue;
+}
+}
+                            
+// AnotherClass.java
+import c4.sample.SampleClass;
+                            
+public class AnotherClass {
+public static void main(String[] args) {
+    // Create an object of the SampleClass from the nested package
+    SampleClass sampleObject = new SampleClass("NestedSample", 202, 42.0);
+                            
+    // Access protected members of the SampleClass
+    System.out.println("Sample Details:");
+    System.out.println("Sample Name: " + sampleObject.sampleName);   // Access protected variable
+    System.out.println("Sample ID: " + sampleObject.sampleId);       // Access protected variable
+    System.out.println("Sample Value: " + sampleObject.sampleValue); // Access protected variable
+}
+}
+</pre>
+                        <p class='fs-6 fw-medium pt-5'>Output:</p>
+                        <p class='fw-normal border border-5 rounded-4 p-3'>
+                            Sample Details: <br>
+Sample Name: NestedSample <br>
+Sample ID: 202 <br>
+Sample Value: 42.0 <br>
+                        </p>
                     </div>
                 </div>
             </div>

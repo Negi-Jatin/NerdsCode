@@ -81,47 +81,40 @@
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
                         <p class="fs-5 text-center mb-5">Input/ Output</p>
-                        <p class='fs-5 fw-semibold'>1. Enter the character from user using InputStreamReader.</p>
+                        <p class='fs-5 fw-semibold'>5. Create a Java program to create a package with multiple default classes.</p>
                             <p class='fs-6 fw-medium'>Code:</p>
 
                             <pre class='fw-normal border border-5 rounded-4 p-3 list'>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+package mypackage;
 
-public class ReadCharFromUser {
-    public static void main(String[] args) {
-        // Create an InputStreamReader to read characters from the console
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-
-        // Wrap the InputStreamReader with BufferedReader for easier reading
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        try {
-            // Prompt the user to enter a character
-            System.out.print("Enter a character: ");
-
-            // Read a single character from the user
-            char userInput = (char) bufferedReader.read();
-
-            // Print the entered character
-            System.out.println("You entered: " + userInput);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                // Close the BufferedReader
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.err.println("Error closing BufferedReader: " + e.getMessage());
-            }
-        }
+class ClassA {
+    void displayA() {
+        System.out.println("This is ClassA");
     }
-}</pre>
+}
+                                
+class ClassB {
+    void displayB() {
+        System.out.println("This is ClassB");
+    }
+}
+                                
+public class MainClass {
+    public static void main(String[] args) {
+        // Create instances of ClassA and ClassB
+        ClassA objA = new ClassA();
+        ClassB objB = new ClassB();
+                                
+        // Call methods from ClassA and ClassB
+        objA.displayA();
+        objB.displayB();
+    }
+}
+</pre>
                             <p class='fs-6 fw-medium pt-5'>Output:</p>
                             <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Enter a character: A<br>
-You entered: A
+                                This is ClassA <br>
+This is ClassB
                             </p>
                     </div>
                 </div>
