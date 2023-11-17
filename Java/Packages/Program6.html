@@ -81,48 +81,59 @@
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
                         <p class="fs-5 text-center mb-5">Input/ Output</p>
-                        <p class='fs-5 fw-semibold'>1. Enter the character from user using InputStreamReader.</p>
-                            <p class='fs-6 fw-medium'>Code:</p>
+                        <p class='fs-5 fw-semibold'>6. Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes.</p>
+                        <p class='fs-6 fw-medium'>Code:</p>
 
-                            <pre class='fw-normal border border-5 rounded-4 p-3 list'>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+                        <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+package mypackage;
 
-public class ReadCharFromUser {
-    public static void main(String[] args) {
-        // Create an InputStreamReader to read characters from the console
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-
-        // Wrap the InputStreamReader with BufferedReader for easier reading
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        try {
-            // Prompt the user to enter a character
-            System.out.print("Enter a character: ");
-
-            // Read a single character from the user
-            char userInput = (char) bufferedReader.read();
-
-            // Print the entered character
-            System.out.println("You entered: " + userInput);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                // Close the BufferedReader
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.err.println("Error closing BufferedReader: " + e.getMessage());
-            }
-        }
-    }
-}</pre>
-                            <p class='fs-6 fw-medium pt-5'>Output:</p>
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Enter a character: A<br>
-You entered: A
-                            </p>
+class Class1 {
+public void display() {
+    System.out.println("This is Class1");
+}
+}
+                            
+class Class2 {
+public void display() {
+    System.out.println("This is Class2");
+}
+}
+                            
+class Class3 {
+public void display() {
+    System.out.println("This is Class3");
+}
+}
+                            
+class Class4 {
+public void display() {
+    System.out.println("This is Class4");
+}
+}
+                            
+public class MainClass {
+public static void main(String[] args) {
+    // Create instances of each class
+    Class1 obj1 = new Class1();
+    Class2 obj2 = new Class2();
+    Class3 obj3 = new Class3();
+    Class4 obj4 = new Class4();
+                            
+    // Call functions from each class
+    obj1.display();
+    obj2.display();
+    obj3.display();
+    obj4.display();
+}
+}
+</pre>
+                        <p class='fs-6 fw-medium pt-5'>Output:</p>
+                        <p class='fw-normal border border-5 rounded-4 p-3'>
+                            This is Class1 <br>
+This is Class2 <br>
+This is Class3 <br>
+This is Class4
+                        </p>
                     </div>
                 </div>
             </div>

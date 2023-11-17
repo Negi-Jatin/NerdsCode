@@ -81,48 +81,24 @@
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
                         <p class="fs-5 text-center mb-5">Input/ Output</p>
-                        <p class='fs-5 fw-semibold'>1. Enter the character from user using InputStreamReader.</p>
-                            <p class='fs-6 fw-medium'>Code:</p>
+                        <p class='fs-5 fw-semibold'>2. Create a Java program to access the java.util.Date class through qualified way and print the current date of the system.</p>
+                        <p class='fs-6 fw-medium'>Code:</p>
 
-                            <pre class='fw-normal border border-5 rounded-4 p-3 list'>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class ReadCharFromUser {
-    public static void main(String[] args) {
-        // Create an InputStreamReader to read characters from the console
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-
-        // Wrap the InputStreamReader with BufferedReader for easier reading
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        try {
-            // Prompt the user to enter a character
-            System.out.print("Enter a character: ");
-
-            // Read a single character from the user
-            char userInput = (char) bufferedReader.read();
-
-            // Print the entered character
-            System.out.println("You entered: " + userInput);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                // Close the BufferedReader
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.err.println("Error closing BufferedReader: " + e.getMessage());
-            }
-        }
-    }
-}</pre>
-                            <p class='fs-6 fw-medium pt-5'>Output:</p>
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Enter a character: A<br>
-You entered: A
-                            </p>
+                        <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+public class CurrentDatePrinter {
+public static void main(String[] args) {
+    // Create an instance of the Date class using the qualified name
+    java.util.Date currentDate = new java.util.Date();
+                            
+    // Print the current date
+    System.out.println("Current Date: " + currentDate);
+}
+}
+</pre>
+                        <p class='fs-6 fw-medium pt-5'>Output:</p>
+                        <p class='fw-normal border border-5 rounded-4 p-3'>
+                            Current Date: Tue Nov 17 14:23:45 UTC 2023
+                        </p>
                     </div>
                 </div>
             </div>

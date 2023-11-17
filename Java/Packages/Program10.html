@@ -81,47 +81,49 @@
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
                         <p class="fs-5 text-center mb-5">Input/ Output</p>
-                        <p class='fs-5 fw-semibold'>1. Enter the character from user using InputStreamReader.</p>
+                        <p class='fs-5 fw-semibold'>10. Create a Java program to create a package with public class and public members to be accessed in another class.</p>
                             <p class='fs-6 fw-medium'>Code:</p>
 
                             <pre class='fw-normal border border-5 rounded-4 p-3 list'>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class ReadCharFromUser {
-    public static void main(String[] args) {
-        // Create an InputStreamReader to read characters from the console
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-
-        // Wrap the InputStreamReader with BufferedReader for easier reading
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        try {
-            // Prompt the user to enter a character
-            System.out.print("Enter a character: ");
-
-            // Read a single character from the user
-            char userInput = (char) bufferedReader.read();
-
-            // Print the entered character
-            System.out.println("You entered: " + userInput);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                // Close the BufferedReader
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.err.println("Error closing BufferedReader: " + e.getMessage());
-            }
-        }
+// MyClass.java
+package mypackage;
+                                
+public class MyClass {
+    // Public members
+    public String publicString;
+    public int publicInt;
+    public double publicDouble;
+                                
+    // Constructor
+    public MyClass(String publicString, int publicInt, double publicDouble) {
+        this.publicString = publicString;
+        this.publicInt = publicInt;
+        this.publicDouble = publicDouble;
     }
-}</pre>
+}
+                                
+// AnotherClass.java
+import mypackage.MyClass;
+                                
+public class AnotherClass {
+    public static void main(String[] args) {
+        // Create an object of the MyClass from the package
+        MyClass myObject = new MyClass("PublicExample", 303, 3.14);
+                                
+        // Access public members of the MyClass
+        System.out.println("Public Members:");
+        System.out.println("Public String: " + myObject.publicString);   // Access public variable
+        System.out.println("Public Int: " + myObject.publicInt);         // Access public variable
+        System.out.println("Public Double: " + myObject.publicDouble);   // Access public variable
+    }
+}
+</pre>
                             <p class='fs-6 fw-medium pt-5'>Output:</p>
                             <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Enter a character: A<br>
-You entered: A
+                                Public Members: <br>
+Public String: PublicExample <br>
+Public Int: 303 <br>
+Public Double: 3.14 <br>
                             </p>
                     </div>
                 </div>

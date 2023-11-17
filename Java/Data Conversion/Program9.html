@@ -81,47 +81,39 @@
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
                         <p class="fs-5 text-center mb-5">Input/ Output</p>
-                        <p class='fs-5 fw-semibold'>1. Enter the character from user using InputStreamReader.</p>
+                        <p class='fs-5 fw-semibold'>9. How to convert String to Date.</p>
                             <p class='fs-6 fw-medium'>Code:</p>
 
                             <pre class='fw-normal border border-5 rounded-4 p-3 list'>
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class ReadCharFromUser {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+                                
+public class StringToDateConverter {
+                                
     public static void main(String[] args) {
-        // Create an InputStreamReader to read characters from the console
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-
-        // Wrap the InputStreamReader with BufferedReader for easier reading
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
+        // Example string containing a date
+        String dateString = "2023-11-14";
+                                
+        // Define the date format to match the pattern in the string
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                                
         try {
-            // Prompt the user to enter a character
-            System.out.print("Enter a character: ");
-
-            // Read a single character from the user
-            char userInput = (char) bufferedReader.read();
-
-            // Print the entered character
-            System.out.println("You entered: " + userInput);
-        } catch (IOException e) {
-            System.err.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                // Close the BufferedReader
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.err.println("Error closing BufferedReader: " + e.getMessage());
-            }
+            // Parse the string to a Date object using the defined format
+            Date convertedDate = dateFormat.parse(dateString);
+                                
+            // Print the result
+            System.out.println("Converted date: " + convertedDate);
+        } catch (ParseException e) {
+            // Handle the exception (e.g., print an error message)
+            System.out.println("Error: Unable to convert the string to a date.");
         }
     }
-}</pre>
+}                                
+</pre>
                             <p class='fs-6 fw-medium pt-5'>Output:</p>
                             <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Enter a character: A<br>
-You entered: A
+                                Converted date: Mon Nov 14 00:00:00 UTC 2023
                             </p>
                     </div>
                 </div>
