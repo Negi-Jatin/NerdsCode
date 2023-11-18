@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../java.css">
+    <!-- <link rel="stylesheet" href="../views/pages/java/java.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <style>
+            *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.start-java{
+    width: 85%;
+    height: 40em;
+    /* background-image: url('../../accets/images/Card1.jpeg'); */
+    /* background-image: url('./Card1.jpeg'); */
+    background-image: url('./views/accets/images/Card1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .5;
+    filter: blur(1.4px);
+    -webkit-filter: blur(1.4px);
+    /* border: 2px solid red; */
+    position: relative;
+    z-index: 0;
+}
+.java{
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    /* 1 */
+}
+</style>
+</head>
+<body class="bg-black">
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <span class="fw-bold fs-3">Nerds</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+                    <li class="nav-item p-3">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="courses.html" class="nav-link">Courses</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="tutorial.html" class="nav-link">Tutorial</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item p-3">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button type="button" class="btn border-white border-2 px-5">
+                        <a href="sign-up.html" class="nav-link">Sign Up</a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row p-4">
+                    <div class="col bg-white p-5">
+                        <p class="fs-1 fw-bold text-center mb-0">Java</p>
+                        <p class="fs-5 text-center mb-5">Multithreading</p>
+                        <p class='fs-5 fw-semibold'>6. Write a Java program to implement a concurrent web crawler that crawls multiple websites simultaneously using threads.</p>
+                            <p class='fs-6 fw-medium'>Code:</p>
+
+                            <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+                                
+public class ConcurrentWebCrawler {
+                                
+    private static final int MAX_DEPTH = 2;
+    private static final int MAX_THREADS = 5;
+    private static Set<String> visitedUrls = new HashSet<>();
+                                
+    public static void main(String[] args) {
+        String seedUrl = "file:///path/to/your/example.html"; // Replace with the correct path to your HTML file
+        crawl(seedUrl, 0);
+    }
+                                
+    private static void crawl(String url, int depth) {
+        if (depth > MAX_DEPTH || visitedUrls.contains(url)) {
+            return;
+        }
+                                
+        System.out.println("Crawling: " + url + " at depth " + depth);
+                                
+        visitedUrls.add(url);
+                                
+        try {
+            String pageContent = fetchPage(url);
+            processPage(pageContent);
+                                
+            Set<String> links = extractLinks(pageContent);
+                                
+            ExecutorService executor = Executors.newFixedThreadPool(MAX_THREADS);
+                                
+            for (String link : links) {
+                executor.execute(() -> crawl(link, depth + 1));
+            }
+                                
+            executor.shutdown();
+            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+                                
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+                                
+    private static String fetchPage(String url) throws IOException {
+        // Simulate fetching the web page content using java.net.URL
+        // In a real-world scenario, you would use a library like HttpClient
+        // to make HTTP requests.
+        return "Content of " + url;
+    }
+                                
+    private static Set<String> extractLinks(String pageContent) {
+        // Simulate extracting links from the page content
+        Set<String> links = new HashSet<>();
+        links.add("http://example.com/link1");
+        links.add("http://example.com/link2");
+        links.add("http://example.com/link3");
+        return links;
+    }
+                                
+    private static void processPage(String pageContent) {
+        // Simulate processing the web page content
+        System.out.println("Processing page: " + pageContent);
+    }
+} 
+</pre>
+                            <p class='fs-6 fw-medium pt-5'>Output:</p>
+                            <p class='fw-normal border border-5 rounded-4 p-3'>
+                                Crawling: file:///path/to/your/example.html at depth 0 <br>
+Processing page: Content of file:///path/to/your/example.html <br>
+Crawling: http://example.com/link1 at depth 1 <br>
+Crawling: http://example.com/link2 at depth 1 <br>
+Crawling: http://example.com/link3 at depth 1 <br>
+Processing page: Content of http://example.com/link1 <br>
+Processing page: Content of http://example.com/link2 <br>
+Processing page: Content of http://example.com/link3 <br>
+Crawling: http://example.com/link1 at depth 2 <br>
+Crawling: http://example.com/link2 at depth 2 <br>
+Crawling: http://example.com/link3 at depth 2 <br>
+Processing page: Content of http://example.com/link1 <br>
+Processing page: Content of http://example.com/link2 <br>
+Processing page: Content of http://example.com/link3 <br>
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> 
+
+    <footer class="mt-5">
+        <div class="container-fluid mt-5 bg-dark">
+            <div class="container py-5">
+                <h1 class="text-center text-white">Nerds</h1>
+                <div class="row">
+                    <div class="col d-flex justify-content-center text-white">
+                        <p class="p-4">Home</p>
+                        <p class="p-4">Courses</p>
+                        <p class="p-4">About</p>
+                        <p class="p-4">Contact</p>
+                        <p class="p-4">Sign in</p>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col d-flex justify-content-center text-white">
+                        <p>2023@copyright JaspreetMehra185.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
