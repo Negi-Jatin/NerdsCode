@@ -80,22 +80,93 @@
                 <div class="row p-4">
                     <div class="col bg-white p-5">
                         <p class="fs-1 fw-bold text-center mb-0">Java</p>
-                        <p class="fs-5 text-center mb-5">Multithreading</p>
-                        <p class='fs-5 fw-semibold'>1. Write a Java program to print ‘Hello World!’ on screen.</p>
-                            <p class='fs-6 fw-medium'>Code:</p>
-                            <!-- {/* <img src={code1} class='rounded-3 bg-dark p-2 mt-3' alt="" srcset="" width='600px' /> */} -->
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                class Hello&#123;<br />
-                                public static void main(String a[])&#123;<br />
-                                System.out.print("Hello World!");<br />
-                                &#125;<br />
-                                &#125;
-                            </p>
+                        <p class="fs-5 text-center mb-5">OOPs</p>
+                        <p class='fs-5 fw-semibold'>8. Write a Java program to create class called "TrafficLight" with attributes for color and duration, and methods to change the color and check for red or green.</p>
+                        <p class='fs-6 fw-medium'>Code:</p>
 
-                            <p class='fs-6 fw-medium pt-5'>Output:</p>
-                            <p class='fw-normal border border-5 rounded-4 p-3'>
-                                Hello World!
-                            </p>
+                        <pre class='fw-normal border border-5 rounded-4 p-3 list'>
+class TrafficLight {
+private String color;
+private int duration;
+                            
+// Constructor to initialize color and duration
+public TrafficLight(String color, int duration) {
+    this.color = color;
+    this.duration = duration;
+}
+
+// Getter methods
+public String getColor() {
+    return color;
+}
+
+public int getDuration() {
+    return duration;
+}
+
+// Method to change the color of the traffic light
+public void changeColor(String newColor, int newDuration) {
+    color = newColor;
+    duration = newDuration;
+    System.out.println("Traffic light changed to " + color + " for " + duration + " seconds.");
+}
+                            
+// Method to check if the traffic light is red
+public boolean isRed() {
+    return color.equalsIgnoreCase("red");
+}
+                            
+// Method to check if the traffic light is green
+public boolean isGreen() {
+    return color.equalsIgnoreCase("green");
+}
+}
+                            
+public class TrafficLightExample {
+public static void main(String[] args) {
+    // Create an instance of the TrafficLight class
+    TrafficLight trafficLight = new TrafficLight("red", 30);
+
+    // Display the initial state of the traffic light
+    System.out.println("Initial Traffic Light State:");
+    System.out.println("Color: " + trafficLight.getColor());
+    System.out.println("Duration: " + trafficLight.getDuration() + " seconds");
+
+    // Check if the traffic light is red or green
+    System.out.println("\nIs the traffic light red? " + trafficLight.isRed());
+    System.out.println("Is the traffic light green? " + trafficLight.isGreen());
+
+    // Change the color and duration of the traffic light
+    trafficLight.changeColor("green", 45);
+
+    // Display the updated state of the traffic light
+    System.out.println("\nUpdated Traffic Light State:");
+    System.out.println("Color: " + trafficLight.getColor());
+    System.out.println("Duration: " + trafficLight.getDuration() + " seconds");
+
+    // Check if the traffic light is red or green after the change
+    System.out.println("\nIs the traffic light red? " + trafficLight.isRed());
+    System.out.println("Is the traffic light green? " + trafficLight.isGreen());
+}
+}
+</pre>
+                        <p class='fs-6 fw-medium pt-5'>Output:</p>
+                        <p class='fw-normal border border-5 rounded-4 p-3'>
+                            Initial Traffic Light State: <br>
+Color: red <br>
+Duration: 30 seconds <br>
+<br>
+Is the traffic light red? true <br>
+Is the traffic light green? false <br>
+Traffic light changed to green for 45 seconds. <br>
+<br>
+Updated Traffic Light State: <br>
+Color: green <br>
+Duration: 45 seconds <br>
+<br>
+Is the traffic light red? false <br>
+Is the traffic light green? true <br>
+                        </p>
                     </div>
                 </div>
             </div>
